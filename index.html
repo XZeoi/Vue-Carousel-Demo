@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue-Carousel-Demo </title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="slide-content">
+            <div class="slide-view">
+                <a href="javascript:;">
+                    <img src="./assets/img/timg-1.jpeg" alt="">
+                </a>
+                <span class="left-button" @click="leftBtn"><i></i></span>
+                <span class="right-button" @click="rightBtn"><i></i></span>
+                <ul class="slide-index">
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+        
+    <script>
+        const vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hey'
+            },
+            methods:{
+                leftBtn(){},
+                rightBtn(){}
+            }
+        })
+    </script>
+</body>
+</html>

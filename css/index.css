@@ -1,0 +1,87 @@
+@charset 'utf-8';
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+#app .slide-content{
+    margin:0 auto;
+    background-color: red;
+    width: 800px;
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+}
+
+#app .slide-view img {
+    position: absolute;
+    width: 100%;
+    /* text-align: center; */
+    top: 50%;
+    transform: translate(0,-50%);
+}
+
+.left-button, .right-button {
+    position: absolute;
+    display: inline-block;
+    width: 20px;
+    height: 30px;
+    background-color: #000;
+    opacity: .4;
+    z-index: 100;
+    cursor: pointer;  
+}
+
+.left-button:hover, .right-button:hover {
+   opacity: .6; 
+}
+
+.left-button i, .right-button i {
+    position: absolute;
+    top: 11px;
+    left: 6px;
+    /* transform: translate(0,-50%); */
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-top: 2px solid #fff;
+    border-left: 2px solid #fff;
+}
+
+.left-button i {
+    transform: rotate(-45deg);
+}
+
+.right-button i {
+    transform: rotate(135deg);
+}
+
+.left-button {
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.right-button {
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+
