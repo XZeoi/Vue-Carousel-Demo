@@ -1,0 +1,22 @@
+[
+    {
+        "name":"pic1",
+        "id":1,
+        "url":"./assets/img/timg-1.jpeg"
+    },
+    {
+        "name":"pic2",
+        "id":1,
+        "url":"./assets/img/timg-2.jpeg"
+    },
+    {
+        "name":"pic3",
+        "id":1,
+        "url":"./assets/img/timg-3.jpeg"
+    },
+    {
+        "name":"pic4",
+        "id":1,
+        "url":"./assets/img/timg-4.jpeg"
+    }
+]

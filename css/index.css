@@ -84,4 +84,27 @@ a {
     border-bottom-left-radius: 15px;
 }
 
+.slide-index {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+}
+
+.slide-index li {
+    float: left;
+    margin-right: 6px;
+}
+
+.slide-index .dot {
+    
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.active{
+    background-color: #666 !important;
+}
 

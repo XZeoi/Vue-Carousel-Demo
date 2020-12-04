@@ -6,18 +6,26 @@
     <title>Vue-Carousel-Demo </title>
     <link rel="stylesheet" href="./css/index.css">
     <script src="./js/vue.min.js"></script>
+    <script src="./js/axios.min.js"></script>
+    <!-- <script src="https://unpkg.com/axios/dist/axios.min.js"></script> -->
 </head>
 <body>
     <div id="app">
         <div class="slide-content">
-            <div class="slide-view">
+            <div class="slide-view" @mouseenter="inStop" @mouseleave="outStart">
                 <a href="javascript:;">
-                    <img src="./assets/img/timg-1.jpeg" alt="">
+                    <img v-for="(item,index) in imgList" 
+                    :key="index" 
+                    v-show="index == cur" 
+                    :src="item.url" 
+                    alt=""
+                    >
+                    <!-- <img src="./assets/img/timg-1.jpeg" alt=""> -->
                 </a>
                 <span class="left-button" @click="leftBtn"><i></i></span>
                 <span class="right-button" @click="rightBtn"><i></i></span>
                 <ul class="slide-index">
-                    <li></li>
+                    <li class="dot" :class="index == cur ? 'active': ''" v-for="(item,index) in imgList" :key="index"></li>
                 </ul>
             </div>
         </div>
@@ -27,11 +35,77 @@
         const vm = new Vue({
             el:'#app',
             data:{
-                msg:'hey'
+                imgList:[],
+                // imgUrl:'',
+                // i: 0,
+                cur:0,
+                intervalEvent:null
+            },
+            mounted(){
+                axios({
+                    url:'./assets/data.json',
+                    methods:'get'
+                }).then((res)=>{
+                    console.log(res.data)
+                    this.imgList = res.data
+                    // this.imgUrl = this.imgList[0].url
+                    // this.autoCarousel();
+                    // setInterval(() => {   
+                    //     this.imgUrl = this.imgList[this.i].url;
+                    //     this.i++;
+                    //     if (this.i==4){
+                    //         this.i = 0;
+                    //     }    
+                    // }, 3000);    
+                    this.changeCur();              
+                })
             },
             methods:{
-                leftBtn(){},
-                rightBtn(){}
+                changeCur(){
+                    this.intervalEvent = setInterval(() => {
+                        if(this.cur !== this.imgList.length-1){
+                            this.cur++;
+                        }else{
+                            this.cur = 0;
+                        }
+                        // this.cur++;
+                        // if(this.cur == this.imgList.length){
+                        //     this.cur = 0;
+                        // }
+                    }, 3000);
+                },
+                // autoCarousel(){
+                //      setInterval(() => {   
+                //         this.imgUrl = this.imgList[this.i].url;
+                //         this.i++;
+                //         if (this.i==4){
+                //             this.i = 0;
+                //         }    
+                //     }, 3000);
+                // },
+                leftBtn(){
+                    if(this.cur !== 0){
+                            this.cur--;
+                        }else{
+                            this.cur = 3;
+                        }
+                },
+                rightBtn(){
+                    if(this.cur !== this.imgList.length-1){
+                            this.cur++;
+                        }else{
+                            this.cur = 0;
+                        }
+                },
+                inStop(){
+                    console.log('done')
+                    clearInterval(this.intervalEvent)
+                },
+                outStart(){
+                    console.log('start')
+                    this.changeCur()
+                }
+
             }
         })
     </script>
