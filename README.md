@@ -16,15 +16,15 @@
   3、当照片标记与中间变量相等时，展示该照片；
   
 ## 关键点讲解
-  1、因为Demo很小，并没有用webpack或者vue-cli来搭建项目。除了CSS样式外，本demo直接在index.html中建立。所以直接利用下载的vue.min.js和axios.min.js库。
-  2、整个程序的重点思路：  
-    - 数据的加载在Vue生命周期中mounted钩子函数中进行，利用axios().then()异步加载数据，并执行首次轮播图动态展示；
-    - 轮播图的动态展示，使用setInterval(()=>{},interval)定时器制作，与此对应clearInterval()清除定时器；
-    - 使用v-for来动态遍历图片和indicator进行展示；
-    - v-show判断要展示的照片，v-bind:class配合三元运算符来动态展示indicator；
-    - 要使用的监听事件有：click、mouseenter、mouseleave；
-  3、笔记：
-    - CSS样式笔记
+  1、因为Demo很小，并没有用webpack或者vue-cli来搭建项目。除了CSS样式外，本demo直接在index.html中建立。所以直接利用下载的vue.min.js和axios.min.js库。  
+  2、整个程序的重点思路：      
+    - 数据的加载在Vue生命周期中mounted钩子函数中进行，利用axios().then()异步加载数据，并执行首次轮播图动态展示；  
+    - 轮播图的动态展示，使用setInterval(()=>{},interval)定时器制作，与此对应clearInterval()清除定时器；  
+    - 使用v-for来动态遍历图片和indicator进行展示；  
+    - v-show判断要展示的照片，v-bind:class配合三元运算符来动态展示indicator；  
+    - 要使用的监听事件有：click、mouseenter、mouseleave；  
+  3、笔记：  
+    - CSS样式笔记  
        (```)
           /*块级居中*/
           margin：0 auto；
